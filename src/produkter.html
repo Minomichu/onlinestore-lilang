@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="miun.se" />
+    <title>Produkter</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body> 
+    <div id="container">
+        <header>
+            <a href="index.html" ><img id="logo" src="images/logo.png" 
+            alt="Loggan visar en person som halsar sprit" /></a>
+            <a href="index.html" ><img id="companyName" src="images/companyName.png" 
+            alt="Företaget heter Lilang" /></a>
+            <img id="burgerImage" src="images/burger.png" alt="Meny för mindre skärmar" />
+
+            <nav id="desktopNav">  
+                <ul>
+                    <li><a href="index.html" title="Hem">Hem</a></li>
+                    <li class="activePage"><a href="produkter.html" title="Produkter">Produkter</a></li>
+                    <li><a href="omsidan.html" title="Om sidan">Om sidan</a></li>
+                    <li><a href="varukorg.html" title="Varukorg">Varukorg</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <nav class="toggleNavigation fullToggle">
+            <ul>
+                <li><a href="index.html" title="Hem">Hem</a></li>
+                <li><a href="produkter.html" title="Produkter">Produkter</a></li>
+                <li><a href="omsidan.html" title="Om sidan">Om sidan</a></li>
+                <li><a href="varukorg.html" title="Varukorg">Varukorg</a></li>
+            </ul>
+        </nav>
+    <main>
+    
+        <section>
+            <div class="wrapper">
+                <div id="surroundCategories">
+                    <div class="smallerWidth">
+                        <h1>PRODUKTER</h1>
+                        <p>Välj bland alla våra produkter eller ange den kategori som stämmer in på just dig.</p>
+                    </div>
+
+                    <div id="cheapCategory">
+                        <h2>LITE BILLIGARE</h2>
+                        <p>Detta alternativ passar bäst för dig 
+                            som inte riktigt bryr dig om vad du 
+                            dricker sålänge du blir full.
+                        </p>
+                        <p>Populärt bland minderåriga samt
+                            för dig som till exempel redan
+                            är för full för att kunna ta dig till
+                            Systemet.
+                        </p>
+                        <div class="categoryMobile">
+                            <button id="chooseLowBudgetMobile" aria-label="Visa endast billig alkohol">VÄLJ</button>
+                            <div class="pinkLine"></div>
+                        </div>
+                    </div>
+
+                    <div id="noCheapCategory">
+                        <h2>HUTLÖST DYRT</h2>
+                        <p>För dig som är såpass lat eller 
+                            stressad att du inte kan ta dig förbi 
+                            Systemet själv.
+                            Även ditt enda alternativ när 
+                            Systemet har stängt.
+                        </p>
+                        <p>Med detta val behöver du inte gå 
+                            ned och möta upp skåpbilen utan vi 
+                            lämnar varorna vid dörren istället.
+                        </p>
+                        
+                        <div class="categoryMobile">
+                            <button id="chooseHighBudgetMobile" aria-label="Visa endast dyr alkohol">VÄLJ</button>
+                            <div class="pinkLine"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Knappar som ligger på samma rad för större skärmar -->
+                <div id="categoryButtonsLargerScreen">
+                    <div class="surroundCategoryButton">
+                        <button id="chooseLowBudgetDesktop" aria-label="Visa endast billig alkohol">VÄLJ</button>
+                        <div class="pinkLine"></div>
+                    </div>
+                    <div class="surroundCategoryButton">
+                        <button id="chooseHighBudgetDesktop" aria-label="Visa endast dyr alkohol">VÄLJ</button>
+                        <div class="pinkLine"></div>
+                    </div>
+                </div>
+
+                <!-- Prisvisning -->
+                <div class="lessMargin"></div>
+                <div class="checkout-button">
+                    <a href="varukorg.html"><div id="small-basket"></div></a>
+                </div>
+                <div class="clear"></div>
+
+                <!-- Alla produkter indelade i två kategorier -->
+                <div id="lowBudget">
+                    <div class="tabletSize">
+                        <div class="surroundEachProduct">
+                            <div id="surroundProductPineapple"> 
+                                <span role="img" aria-label="Bild på en flaska Ananasbubbel"></span>
+                                <div class="priceButton">230:-</div>
+                                <div class="smallSeparator"></div>
+                                <button id="addPineapple" aria-label="Lägg en Ananasbubbel i varukorgen" onclick="addToBasket(this, 'Ananasbubbel', 'Ananasbubbel', 230, 'images/pineappleTN.png', true)">
+                                    <span class="plusSign">+</span>
+                                </button>
+                            </div>
+                            <div class="productName">Ananasbubbel</div>
+                            <a href="http://mimmimi.com/Bildbehandling/lilang/IP/pineapple.html"><div class="readMore"><span class="borderBottom">Läs mer</span></div></a>
+                        </div>
+                        <div class="surroundEachProduct">
+                            <div id="surroundProductRed">
+                                <span role="img" aria-label="Bild på en flaska rödvin"></span>
+                                <div class="priceButton">300:-</div>
+                                <div class="smallSeparator"></div>
+                                <button id="addRed" aria-label="Lägg en flaska rödvin i varukorgen" onclick="addToBasket(this, 'Redwine', 'Rödvin', 300, 'images/redTN.png', true)">
+                                    <span class="plusSign">+</span>
+                                </button>
+                            </div>
+                            <div class="productName">Rödvin</div>
+                            <a href="http://mimmimi.com/Bildbehandling/lilang/IP/red.html"><div class="readMore"><span class="borderBottom">Läs mer</span></div></a>
+                        </div>
+                    </div>
+                    <div class="tabletSize">
+                        <div class="surroundEachProduct">
+                            <div id="surroundProductHex">
+                                <span role="img" aria-label="Bild på en flaska häxblandning"></span>
+                                <div class="priceButton">250:-</div>
+                                <div class="smallSeparator"></div>
+                                <button id="addHex" aria-label="Lägg en häxblandning i varukorgen" onclick="addToBasket(this, 'Hex', 'Häxblandning', 250, 'images/hexTN.png', true)">
+                                    <span class="plusSign">+</span>
+                                </button>
+                            </div>
+                            <div class="productName">Häxblandning</div>
+                            <a href="http://mimmimi.com/Bildbehandling/lilang/IP/hex.html"><div class="readMore"><span class="borderBottom">Läs mer</span></div></a>
+                        </div>
+                        <div class="surroundEachProduct">
+                            <div id="surroundProductRazz">
+                                <span role="img" aria-label="Bild på en flaska Bacardi Razz"></span>
+                                <div class="priceButton">750:-</div>
+                                <div class="smallSeparator"></div>
+                                <button id="addRazz" aria-label="Lägg en Bacardi Razz i varukorgen" onclick="addToBasket(this, 'BacardiRazz', 'Bacardi Razz', 750, 'images/razzTN.png', true)">
+                                    <span class="plusSign">+</span>
+                                </button>
+                            </div>
+                            <div class="productName">Bacardi Razz</div>
+                            <a href="http://mimmimi.com/Bildbehandling/lilang/IP/razz.html"><div class="readMore"><span class="borderBottom">Läs mer</span></div></a>
+                        </div>
+                    </div>
+                </div> <!-- end lowBudget -->
+
+                <div id="highBudget">
+                    <div class="tabletSize">
+                        <div class="surroundEachProduct">
+                            <div id="surroundProductBeaumont">
+                                <span role="img" aria-label="Bild på en flaska Beaumontbubbel"></span>
+                                <div class="priceButton">1850:-</div>
+                                <div class="smallSeparator"></div>
+                                <button id="addBeaumont" aria-label="Lägg en Beaumontbubbel i varukorgen" onclick="addToBasket(this, 'BeaumontBubbel', 'BeaumontBubbel', 1850, 'images/beaumontTN.png', true)">
+                                    <span class="plusSign">+</span>
+                                </button>
+                            </div>
+                            <div class="productName">Beaumont des Crayéres</div>
+                            <a href="http://mimmimi.com/Bildbehandling/lilang/IP/beaumont.html"><div class="readMore"><span class="borderBottom">Läs mer</span></div></a>
+                        </div>
+                        <div class="surroundEachProduct">
+                            <div id="surroundProductBaron">
+                                <span role="img" aria-label="Bild på en flaska Baronbubbel"></span>
+                                <div class="priceButton">1200:-</div>
+                                <div class="smallSeparator"></div>
+                                <button id="addBaron" aria-label="Lägg en Baronbubbel i varukorgen" onclick="addToBasket(this, 'BaronBubbel', 'BaronBubbel', 1200, 'images/baronTN.png', true)">
+                                    <span class="plusSign">+</span>
+                                </button>
+                            </div>
+                            <div class="productName">Baronbubbel</div>
+                            <a href="http://mimmimi.com/Bildbehandling/lilang/IP/baron.html"><div class="readMore"><span class="borderBottom">Läs mer</span></div></a>
+                        </div>
+                    </div>
+                    <div class="tabletSize">
+                        <div class="surroundEachProduct">
+                            <div id="surroundProductPol">
+                                <span role="img" aria-label="Bild på en flaska Pol Roger"></span>
+                                <div class="priceButton">2300:-</div>
+                                <div class="smallSeparator"></div>
+                                <button id="addPol" aria-label="Lägg en Pol Roger i varukorgen" onclick="addToBasket(this, 'PolRoger', 'Pol Roger', 2300, 'images/polTN.png', true)">
+                                    <span class="plusSign">+</span>
+                                </button>
+                            </div>
+                            <div class="productName">Pol Roger</div>
+                            <a href="http://mimmimi.com/Bildbehandling/lilang/IP/pol.html"><div class="readMore"><span class="borderBottom">Läs mer</span></div></a>
+                        </div>
+                        <div class="surroundEachProduct">
+                            <div id="surroundProductVanilla">
+                                <span role="img" aria-label="Bild på en flaska vaniljvodka"></span>
+                                <div class="priceButton">1150:-</div>
+                                <div class="smallSeparator"></div>
+                                <button id="addVanilla" aria-label="Lägg en vaniljvodka i varukorgen" onclick="addToBasket(this, 'Vaniljvodka', 'Vaniljvodka', 1150, 'images/vanillaTN.png', true)">
+                                    <span class="plusSign">+</span>
+                                </button>
+                            </div>
+                            <div class="productName">Vaniljvodka</div>
+                            <a href="http://mimmimi.com/Bildbehandling/lilang/IP/vanilla.html"><div class="readMore"><span class="borderBottom">Läs mer</span></div></a>
+                        </div>
+                    </div>
+                </div> <!-- end highBudget -->
+              
+            </div> <!-- end wrapper -->
+        </section>
+    </main>
+
+    <div id="footerWrapper">
+            <div id="footer">
+                <div id="footerLeft">
+                    <div id="footer1">
+                        <ul>
+                            <li>08 - 650 08 08</li>
+                        </ul>
+                    </div>
+                    <div id="footer2">
+                        <ul>
+                            <li>Langargatan 12</li>
+                        </ul>
+                    </div> 
+                </div> <!-- end footerLeft -->
+                <div id="footerRight">
+                    <div id="footer3">
+                        <ul>
+                            <li><a href="mailto:mino1801@student.miun.se">info@lilang.se</a></li>
+                        </ul>
+                    </div>
+                    <div id="footer4">
+                        <ul>
+                            <li>© Lilang 2020</li>
+                        </ul>
+                    </div>
+                </div><!-- end footerRight -->
+            </div>
+        </div>
+    
+    </div> <!-- end container -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/main.js"></script>
+    </body>
+</html>

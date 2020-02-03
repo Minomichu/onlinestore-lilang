@@ -1,0 +1,1091 @@
+@charset "UTF-8";
+@import 'reset';
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,700|Raleway:400,600,700|Roboto+Slab:400,700');
+
+$color1: black; //header, footer, boxshadow form, submitbuttons, toggle borders, toggle text
+$color2: white; //links, sub menues, background toggle, text footer, text buttons
+$color3: #F21DA0; //buttons, hover
+$color4: #fcfcfc; //backgroundcolor
+$color5: #f9a4d9; //weak pink
+
+$textColor: #2f2c2c;
+$boxColor: #fefbfd; //box, form 
+
+$font1: 'Roboto Slab', 'Times', serif; //headings
+$font2: 'Raleway', 'Verdana', sans-serif; //textfont
+$font3: 'Libre Franklin', 'Verdana', sans-serif; //menu, footer, toggle, image
+
+//MEDIA QUERIES 
+@mixin mq($mqValue...) {
+	@if length($mqValue) == 1 {
+		@media screen and (max-width: nth($mqValue, 1)) {
+			@content;
+		}
+	}
+	@if length($mqValue) == 2 {
+		@media screen and (max-width: nth($mqValue, 1)) and (min-width: nth($mqValue, 2)) {
+			@content;
+		}
+	}
+	
+	@if length($mqValue) == 3 {
+		@media screen and (min-width: nth($mqValue, 3)) {
+			@content;
+		}
+	}
+}
+
+
+//STANDARD
+html {
+	font-size: 62.5%; 
+	height: 100%;
+}
+
+body { 
+	background-color: $color4;
+	height: 100%;
+	font-family: $font2;
+	font-size: 1.6rem;
+	line-height: 1.5;
+} 
+
+main {
+	flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font1;
+	color: #161616;
+}
+
+h1 {
+	font-size: 2.8rem;
+	margin-bottom: 0.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+	line-height: 1.4;
+	padding-bottom: 0.8rem;
+}
+
+h3 {
+	font-size: 1.9rem;
+	margin-top: 1rem;
+	line-height: 1.4;
+	padding-bottom: 0.6rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+	line-height: 1.3;
+	font-weight: 600;
+	padding-bottom: 0.8rem;	
+}
+
+h5 {
+	font-size: 1.3rem;
+	font-family: $font2;
+	padding-right: 1rem;
+}
+
+h6 {
+	font-size: 1.4rem;
+}
+
+p, a {
+	font-family: $font2;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	color: $textColor;
+	padding-bottom: 1.5rem;
+}
+
+p {
+	@include mq(340px) {
+		line-height: 1.6;
+	}
+}
+
+i, em {
+	font-style: italic;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+//LISTS
+ol {
+	list-style-type: decimal;
+	list-style-position: inside;	
+}
+
+ol li {
+	font-family: $font2;
+	font-size: 1.5rem;
+	line-height: 1.8;
+}
+
+
+//LINKS
+a {
+	color: $color2;
+}
+
+a:hover {
+	color: $color3;
+}
+
+
+//Gör så att footern hamnar längst ned/ följer med sidan
+#container {
+	display: flex;
+  	flex-direction: column;
+	min-height: 100vh;
+}
+
+
+//SURROUNDS
+.wrapper {
+	margin: 2.5rem 6rem;
+
+	@include mq(340px) {
+		margin: 2.5rem 4rem;
+	}
+}
+
+//Individual product pages
+.IP {
+
+	@include mq(600px) {
+		margin: 6rem 0;
+	}
+}
+
+.IPvideo {
+
+	@include mq(900px) {
+		margin: 6rem 0;
+	}
+}
+
+.basketWrapper {
+	width: 50rem;
+	margin: 4rem auto;
+
+	@include mq(500px) {
+		width: 30rem;
+	}
+}
+
+.centered {
+	text-align: center;
+}
+
+
+//TOP OF PAGE
+header {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+    background-color: $color1;
+	height: 100px;
+	padding: 2rem 0 2rem 0;
+	position: relative;
+	top: 0px;
+
+	@include mq(340px) {
+		display: block;
+	}
+}
+
+#logo {
+	height: 80px;
+	margin-left: 3.5rem;
+	
+	@include mq(240px) {
+		display: none;
+	}
+}
+
+#companyName {
+    height: 60px;
+	margin: 2rem 0 0 0;
+	
+	@include mq(430px) {
+		display: none;
+	}
+}
+
+
+//DESKTOPMENU	
+#desktopNav {
+	margin-left: auto;
+
+	@include mq(1280px, 961px) {
+		margin-right: 1.5rem;
+	}
+
+	@include mq(960px) {
+		display: none;
+	}
+
+	ul {
+		display: flex;
+		flex-flow: row wrap;
+	}
+
+	li {
+		@include mq(1, 1, 1281px) {
+			padding-right: 3rem;
+		}
+	}
+	
+	a { 
+		font-family: $font3;
+		font-size: 2rem;
+		font-weight: 700;
+		color: $color2;
+		padding: 1.5rem;
+	}
+
+ 	a:hover {
+	 	color: $color3;
+		text-decoration: none;
+	}
+}
+
+.activePage a {
+	border-top: 0.5px solid $color3;
+	border-bottom: 1px solid $color3;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+}
+
+
+//BURGERMENU
+#burgerImage {
+	margin-left: auto;
+	padding-right: 2rem;
+	height: 30px;
+	cursor: pointer;
+
+	@include mq(1, 1, 961px) {
+		display: none;
+	}
+
+	@include mq(340px) {
+		float: right;
+		padding-right: 2rem;
+		padding-top: 3.5rem;			
+	}
+}
+
+.toggleNavigation {
+
+	@include mq(1, 1, 961px) {
+		display: none;
+	}
+
+	ul {
+		display: block;
+		overflow: hidden;
+		list-style: none;
+		background: $color2;  
+		text-transform: uppercase;
+		width: 100%;
+		height: 0;
+	}
+	
+	//Visar menyvalen med JavaScript
+	ul.open {
+		height: auto;
+	}
+
+	li {
+		float: none;
+		font-family: $font2;
+		text-align: right;
+		font-size: 1.7rem;
+	}
+	
+	a:link, a:visited, a:hover {
+		display: block;
+		border-bottom: 0.1em solid $color1;
+		color: $color1;
+    	padding-right: 2rem;
+    	padding-top: 1.5rem;
+		text-decoration: none;
+	
+		@include mq(960px, 751px) {
+			padding-right: 4rem;
+		}
+
+		@include mq(750px, 500px) {
+			padding-right: 3rem;
+		}
+
+		@include mq(340px) {
+			padding-right: 1.4rem;
+		}
+	}
+}
+
+
+//MIDDLE OF PAGE
+//Startpage
+#banner {
+	overflow: hidden;
+	height: 40rem;
+	width: 100%;
+	background-position: bottom; 
+    background-repeat: no-repeat;
+    background-size: cover;
+	position: relative;
+	background-image: url(../images/banner.jpg);
+
+	@include mq(1000px) {
+		background-position: bottom right;
+	}
+
+	@include mq(500px) {
+		background-image: url(../images/bannerMobile.jpg);
+		background-position: bottom center;
+	}
+}
+
+
+#slogan {
+	font-style: italic;
+	font-size: 1.8rem;
+	color: $color2;
+	background-color: $color1;
+	padding: 2rem;
+	text-align: center;
+}
+
+
+//ABOUT US
+#aboutLilang {
+	text-align: center;
+	margin-top: 4rem;
+
+	//annars pushar stora wrappern så att innehållet inte blir centrerat
+	@include mq(450px) {
+		margin-left: -3rem;
+		margin-right: -3rem;
+	}
+}
+
+#aboutText {
+	display: inline-block;
+	margin-top: 1.5rem;
+	margin-bottom: 2rem;
+	text-align: left;
+}
+
+//Annars visas alla bilder samtidigt istället för att slidea
+.slider {
+	display: none;
+}
+
+
+//CATEGORIES
+//textlängd under kategoriöverskriften
+.smallerWidth {
+	margin-bottom: 1rem;
+
+	@include mq(900px) {
+		display: inline-block;
+		width: 30rem;
+		text-align: left;
+	}
+}
+
+#surroundCategories,
+#categoryButtonsLargerScreen {
+	text-align: center;
+}
+
+#surroundCategories {
+	@include mq(900px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+//Lägger knappar och linjer jämsides
+#categoryButtonsLargerScreen {
+	display: block;
+
+	@include mq(900px) {
+		display: none;
+	}
+}
+
+.categoryMobile {
+	display: inline-block;
+
+	@include mq(1, 1, 900px) {
+		display: none;
+	}
+}
+
+#cheapCategory,
+#noCheapCategory,
+.surroundCategoryButton {
+	display: inline-block;
+	width: 30rem;
+	text-align: left;
+	margin: 2rem 3rem;
+	vertical-align: top;
+}
+
+#noCheapCategory {
+	@include mq(900px) {
+		margin-top: -2rem;
+	}
+}
+
+.smallerWidth, 
+#cheapCategory,
+#noCheapCategory {
+	@include mq(330px) {
+		width: 100%;
+	}
+}
+
+.surroundCategoryButton {
+	text-align: center;
+}
+
+
+//PRODUCT PRESENTATION
+#surroundTopsellers {
+	display: flex;
+	justify-content: center;
+
+	@include mq(1000px) {
+		flex-flow: row wrap;
+	}
+}
+
+#lowBudget,
+#highBudget {
+	display: flex;
+	justify-content: center;
+
+	@include mq(1, 1, 1000px) {
+		margin-top: 3rem;
+		margin-bottom: 5rem;
+	}
+
+	@include mq(1000px) {
+		flex-flow: row wrap;
+	}
+}
+
+.tabletSize {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	
+	@include mq(600px) {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.surroundEachProduct {
+	display: inline-block;
+	padding: 2rem;
+
+	@include mq(1000px) {
+		margin-bottom: 4rem;
+		padding: 2rem 4rem;
+	}
+}
+
+.surroundProduct {
+	width: 20rem;
+	overflow: hidden;
+	height: 25rem;
+	background-position: bottom; 
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#surroundProductBeaumont {
+	@extend .surroundProduct;
+	background-image: url(../images/beaumont.png);
+}
+
+#surroundProductBaron {
+	@extend .surroundProduct;
+	background-image: url(../images/baron.png);
+}
+
+#surroundProductRed {
+	@extend .surroundProduct;
+	background-image: url(../images/red.png);
+}
+
+#surroundProductPineapple {
+	@extend .surroundProduct;
+	background-image: url(../images/pineapple.png);
+}
+
+#surroundProductVanilla {
+	@extend .surroundProduct;
+	background-image: url(../images/vanilla.png);
+}
+
+#surroundProductRazz {
+	@extend .surroundProduct;
+	background-image: url(../images/razz.png);
+}
+
+#surroundProductPol {
+	@extend .surroundProduct;
+	background-image: url(../images/pol.png);
+}
+
+#surroundProductHex {
+	@extend .surroundProduct;
+	background-image: url(../images/hex.png);
+}
+ 
+.button {
+	background-color: $color3;
+	padding: 0.5rem;
+	color: $color2;
+	display: inline-block;
+	border-radius: 0.5rem;
+	font-weight: 700;
+} 
+.priceButton {
+	@extend .button;
+	padding-left: 0.8rem;
+}
+
+#chooseLowBudgetMobile,
+#chooseHighBudgetMobile,
+#chooseLowBudgetDesktop,
+#chooseHighBudgetDesktop {
+	@extend .button;
+	font-size: 1.4rem;
+	padding: 0.8rem 1rem;
+	cursor: pointer;
+}
+
+#addBeaumont,
+#addBaron,
+#addRed,
+#addPineapple,
+#addVanilla,
+#addRazz,
+#addPol,
+#addHex {
+	background-color: $color3;
+	border-radius: 0.5rem;
+	position: relative;
+	width: 3rem; 
+	height: 3rem;
+	cursor: pointer;
+}
+ 
+//Plusstecknet hade mycket mer space än andra bokstäver ovan och nedtill,
+//därav denna lösning för att få en bra fyrkant. 
+.plusSign { 
+	font-size: 4rem;
+	color: $color2;
+	position: absolute;
+	left: 0.7rem;
+	bottom: -0.9rem;
+}
+
+.productName { 
+	text-align: center;
+	margin-top: 0.5rem;
+}
+
+.readMore {
+	text-align: center;
+	margin-top: 0.3rem;
+	padding: 1rem; 
+	text-transform: uppercase;
+	background-color: #bfbfbf;
+	border-radius: 0.5rem;
+}
+
+//Understrykning vid hover till "Läs-mer"-länkarna
+a:hover .borderBottom {
+	color: $color2;
+	border-bottom: 2px solid $color2;
+}
+
+//INDIVIDUAL PRODUCTS
+.background {
+	background-image: url(../images/background.png);
+}
+
+.boxProduct {
+	width: 80rem;
+	height: 50rem;
+	background-color: $color2;
+	margin: 8rem auto;
+	border-bottom: 5px outset $color3;
+	border-left: 5px outset $color3;
+
+	@include mq(900px) {
+		width: 50rem;
+		height: 50rem;
+		margin: 6rem auto;
+
+	}
+
+	@include mq(600px) {
+		width: 100%;
+		height: 100%;
+		border: none;
+		margin: 0;
+	}
+}
+
+
+.boxProductVideo {
+	@extend .boxProduct;
+
+	@include mq(900px) {
+		width: 100%;
+		height: 100%;
+		border: none;
+		margin: 0;
+	}
+}
+
+.fadingBackground,
+.fadingBackgroundVideo {
+	display: inline-block;
+	width: 35%;
+	height: 100%;
+	background-image: linear-gradient(to right, rgba(242, 29, 160,0.7), rgba(242, 29, 160,0));
+
+	@include mq(600px) {
+		display: block;
+		width: 100%;
+		background-image: none;
+		padding-top: 4rem;
+	}
+}
+
+.fadingBackgroundVideo {
+	@include mq(900px) {
+		display: block;
+		width: 100%;
+		background-image: none;
+		padding-top: 4rem;
+	}
+}
+
+.imageOrVideo,
+.imageOrVideoJustVideo {
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	@include mq(600px) {
+		text-align: center;
+	}
+}
+
+.imageOrVideoJustVideo {
+	@include mq(900px) {
+		text-align: center;
+	}
+}
+
+//Placerar bilden rätt
+.imageIndividualProduct {
+	display: inline-block;
+	height: 80%;
+	position: absolute;
+	bottom: 3rem;
+	left: 25%;
+
+	@include mq(600px) {
+		position: relative;
+		height: 30rem;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+//VIDEO
+#hexVideo video {
+	@extend .imageIndividualProduct;
+	bottom: 10%;
+	left: 15%;
+
+	@include mq(900px) {
+		position: relative;
+		height: 40rem;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+.textIndividualProduct,
+.textIndividualProductVideo {
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	padding: 5%;
+	height: 100%;
+
+	@include mq(900px) {
+		width: 45%;
+		padding: 8%;
+	}
+
+	@include mq(600px) {
+		display: block;
+		width: 84%;
+		padding: 0 8%;
+		padding-bottom: 4rem;
+	}
+}
+
+.textIndividualProductVideo {
+	@include mq(900px) {
+		display: block;
+		width: 84%;
+		padding: 0 8%;
+		padding-bottom: 4rem;
+	}
+}
+
+//För att texten inte ska rinna över när rutan blir smalare
+.textIndividualProduct p,
+.textIndividualProductVideo p {
+	@include mq(900px) {
+		font-size: 0.9em;
+	}
+
+	@include mq(600px) {
+		font-size: 1em;
+	}
+}
+
+.productnameIndividualProduct h1 {
+	text-transform: uppercase;
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.priceIndividualProduct {
+	font-style: italic;
+	font-size: 0.9em;
+	margin-top: 5rem;
+}
+
+.putInBasket {
+	display: inline-block;
+	border: 3px solid $color3;
+	margin-top: 1rem;
+	cursor: not-allowed;
+}
+
+.textForBasket {
+	display: inline-block;
+	text-transform: uppercase;
+	background-color: $color3;
+	color: $color2;
+	padding: 0.8rem;
+	font-size: 1.4rem;
+
+	@include mq(300px) {
+		font-size: 1.2rem;
+		padding: 0.5rem;
+	}
+}
+
+.amountForBasket {
+	display: inline-block;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	font-size: 2rem;
+
+	@include mq(300px) {
+		font-size: 1.4rem;
+		padding-left: 0;
+		padding-right: 0.5rem;
+	}
+}
+
+
+//ABOUT PAGE
+#surroundAboutPage {
+	text-align: center;
+	width: 80%;
+	margin: 4rem auto;
+
+	@include mq(900px) {
+		width: 100%;
+	}
+} 
+
+.textAboutPage {
+	text-align: left;
+}
+
+#floatRight {
+	float: right;
+	margin: 4.5rem 0 1rem 3rem;
+
+	@include mq(550px) {
+		display: none;
+	} 
+}
+
+.ikea {
+	width: 20rem;
+
+	@include mq(550px) {
+		width: 90%;
+	}
+}
+
+#ikeaMobile {
+	display: block;
+	margin-top: 1rem;
+	margin-bottom: 3rem;
+
+	@include mq(1, 1, 550px) {
+		display: none;
+	}
+}
+
+figcaption {
+	font-size: 1.2rem;
+}
+
+
+//BASKET
+.checkout-button {
+	@include mq(600px) {
+		text-align: center;
+	}
+}
+
+#small-basket {
+	@extend .button;
+	text-align: right;
+	margin-top: -3.5rem;
+	font-weight: 400;
+	margin-right: auto;
+	padding: 0.8rem;
+	background-color: $color2;
+	color: $color3;
+	border: 1px solid $color3;
+	float: right;
+
+	@include mq(600px) {
+		float: none;
+		display: inline-block;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+}
+
+.lessMargin {
+	margin: 0;
+
+	@include mq(600px) {
+		margin-top: -3rem;
+	} 
+}
+
+//Tabellen vägrade ta emot vanlig padding
+table {
+	width: 100%;
+	border: 2rem solid $color4;
+	border-bottom: 5px solid $color4;
+	outline: 1px solid $color3;
+} 
+
+//Lägger texten jämnt längsmed bilderna
+td {
+	vertical-align: middle;
+}
+
+
+//FOOTER
+//Ger hela footern färg även när bredden minskas
+#footerWrapper { 
+	background-color: $color1;
+	flex-shrink: 0;
+} 
+
+#footer {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+    margin: 0 6rem;
+	padding: 2rem 0;
+	color: $color2;
+
+	@include mq(1, 1, 751px) {
+		flex-direction: row;
+	}
+
+	@include mq(340px) {
+		display: block;
+		margin: 0 4rem;
+	}
+
+	ul li {
+		font-family: $font3;
+		font-size: 1.3rem;
+		line-height: 1.5;
+
+		@include mq(340px) {
+			padding: 0.3rem;
+		}
+	}
+
+	//Mailadressen
+	a { 
+		font-family: $font3;
+		font-size: 1.3rem;
+		text-decoration: underline;
+	}
+
+	a:hover {
+		color: $color3;
+	}
+}
+
+#footerLeft, #footerRight {
+	
+	@include mq(1, 1, 751px) {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 40%;
+	}
+}
+
+#footerRight {
+	
+	@include mq(340px) {
+		text-align: left;
+		padding-top: 0.3rem;
+	}
+}
+
+
+//OTHER
+//Rensar efter floats
+.clear {
+    clear: both;
+}
+
+//Ger mellanrum mellan textstycken
+.separator {
+	height: 3rem;
+}
+
+.smallSeparator {
+	margin: 0.5rem;
+}
+
+.blackLine {
+	height: 0.1rem;
+	background-color: $color1;
+	margin: 3rem -6rem;
+
+	@include mq(340px) {
+		margin: 3rem -4rem;
+	}
+}
+
+.pinkLine {
+	height: 0.1rem;
+	margin: 4rem auto;
+	background-color: $color5;
+	width: 20rem;
+}
+
+.pinkLineIndividualProduct {
+	@extend .pinkLine;
+	
+	@include mq(1, 1, 600px) {
+		display: none;
+	}
+}
+
+.pinkLineIndividualProductVideo {
+	@extend .pinkLine;
+	
+	@include mq(1, 1, 900px) {
+		display: none;
+	}
+}
+
+
+//FORM
+form {
+	background-color: $boxColor;
+	border: 1px solid $color1;
+	padding: 2rem 4rem;
+	margin: 0;
+	border-radius: 0.5rem;
+
+	@include mq(280px) {
+		border: none;
+	}
+
+	p {
+		padding-bottom: 0.8rem;
+		line-height: 1.3;
+	}
+}
+
+input[type="text"] {
+	width: 100%;
+	height: 3.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid $color1;
+	padding-left: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.baseButton {
+	padding: 1.5rem;
+	margin: 1rem;
+	font-size: 1.8rem;
+	border-radius: 0.5rem;
+	box-shadow: 2px 3px 5px darkgrey;
+	cursor: pointer; 
+}
+
+button[type="submit"] {
+	@extend .baseButton;
+	background: $color1;
+	color: $color2; 
+}
+
+//Radera-knapp för varukorg
+#deleteBasket {
+	border: 1px solid $color1;
+	border-top: 1px solid $color3;
+	border-right: 1px solid $color3;
+	padding: 0.3rem 0.5rem;
+	font-size: 0.7em;
+	color: grey;
+}

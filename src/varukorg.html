@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="sv">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="miun.se" />
+    <title>Varukorgen</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body> 
+    <div id="container"> 
+        <header>
+            <a href="index.html" ><img id="logo" src="images/logo.png" 
+            alt="Loggan visar en person som halsar sprit" /></a>
+            <a href="index.html" ><img id="companyName" src="images/companyName.png" 
+            alt="Företaget heter Lilang" /></a>
+            <img id="burgerImage" src="images/burger.png" alt="Meny för mindre skärmar" />
+
+            <nav id="desktopNav">  
+                <ul>
+                    <li><a href="index.html" title="Hem">Hem</a></li>
+                    <li><a href="produkter.html" title="Produkter">Produkter</a></li>
+                    <li><a href="omsidan.html" title="Om sidan">Om sidan</a></li>
+                    <li class ="activePage"><a href="varukorg.html" title="Varukorg">Varukorg</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <nav class="toggleNavigation fullToggle">
+            <ul>
+                <li><a href="index.html" title="Hem">Hem</a></li>
+                <li><a href="produkter.html" title="Produkter">Produkter</a></li>
+                <li><a href="omsidan.html" title="Om sidan">Om sidan</a></li>
+                <li><a href="varukorg.html" title="Varukorg">Varukorg</a></li>
+            </ul>
+        </nav>
+    <main>
+    
+    <section>
+        <div class="basketWrapper">
+            <div class="checkout-button">
+                <table> 
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td><strong>Varunamn</strong></td>
+                            <td><strong>Antal</strong></td>
+                            <td><strong>Pris styck</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody id="checkout"></tbody>
+                </table>
+                <div class="smallSeparator"></div>
+                <button id="deleteBasket" aria-label="Radera allt som ligger i varukorgen" onclick="emptyBasket()">Radera</button>
+            </div>
+
+            <div class="separator"></div>
+
+            <h2>Information för leverans</h2>
+            <form>
+                <fieldset> 
+                    <div class="smallSeparator"></div>
+                    <label>Vem är du?</label>
+                    <input type="text" name="name" id="name">
+                    <label>Gata och gatunummer för leverans</label>
+                    <input type="text" name="address" id="address">
+                    <label>Betalning sker med:</label><br/>
+                    <input type="radio" name="payment" value="kontant"> Kontanter<br/>
+                    <input type="radio" name="payment" value="swish"> Swish<br/>
+                    <div class="separator"></div>
+                    <button type="submit" id="submit" value="submit" onclick="checkoutBasket()">Skicka beställning</button>
+                </fieldset>
+            </form>
+        </div> <!-- end wrapper -->
+    </section>
+
+    </main>
+    <div id="footerWrapper">
+            <div id="footer">
+                <div id="footerLeft">
+                    <div id="footer1">
+                        <ul>
+                            <li>08 - 650 08 08</li>
+                        </ul>
+                    </div>
+                    <div id="footer2">
+                        <ul>
+                            <li>Langargatan 12</li>
+                        </ul>
+                    </div>
+                </div> <!-- end footerLeft -->
+                <div id="footerRight">
+                    <div id="footer3">
+                        <ul>
+                            <li><a href="mailto:mino1801@student.miun.se">info@lilang.se</a></li>
+                        </ul>
+                    </div>
+                    <div id="footer4">
+                        <ul>
+                            <li>© Lilang 2020</li>
+                        </ul>
+                    </div>
+                </div><!-- end footerRight -->
+            </div>
+        </div>
+    
+    </div> <!-- end container -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/main.js"></script>
+    </body>
+</html>
